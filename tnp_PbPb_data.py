@@ -422,6 +422,8 @@ process.tpTreeTrk = cms.EDAnalyzer("TagProbeFitTreeProducer",
     ),
     flags = cms.PSet(
       TM = cms.string("isTrackerMuon"),
+      SoftId = cms.string(SoftId),
+      LowPtTriggerProbeFlags,
       isSTA = cms.string("isStandAloneMuon"),
       Glb   = cms.string("isGlobalMuon"),
       TrackCuts = cms.string(TRACK_CUTS),

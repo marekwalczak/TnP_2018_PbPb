@@ -173,8 +173,9 @@ process.tpTree = cms.EDAnalyzer("TagProbeFitTreeProducer",
     flags = cms.PSet(
         TrackQualityFlags,
         MuonIDFlags,
-        LowPtTriggerProbeFlags,
+        TM = cms.string("isTrackerMuon"),
         SoftId = cms.string(SoftId),
+        LowPtTriggerProbeFlags,
         InAcceptance_Ups = cms.string(InAcceptance_Ups),
         TrackCuts = cms.string(TRACK_CUTS),
     ),
@@ -432,7 +433,8 @@ process.tpTreeTrk = cms.EDAnalyzer("TagProbeFitTreeProducer",
     ),
     flags = cms.PSet(
       TM = cms.string("isTrackerMuon"),
-      #SoftId = cms.string(SoftId),
+      SoftId = cms.string(SoftId),
+      LowPtTriggerProbeFlags,
       isSTA = cms.string("isStandAloneMuon"),
       Glb   = cms.string("isGlobalMuon"),
       TrackCuts = cms.string(TRACK_CUTS),
@@ -504,7 +506,7 @@ process.schedule = cms.Schedule(
 process.RandomNumberGeneratorService.tkTracksNoJPsi = cms.PSet( initialSeed = cms.untracked.uint32(81) )
 process.RandomNumberGeneratorService.tkTracksNoBestJPsi = cms.PSet( initialSeed = cms.untracked.uint32(81) )
 
-process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpJpsi_MC_PbPb_191113_test1.root"))
+process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpJpsi_MC_PbPb_191201.root"))
 
 from HLTrigger.Configuration.CustomConfigs import MassReplaceInputTag
 process = MassReplaceInputTag(process,"offlinePrimaryVertices","offlinePrimaryVerticesRecovery")
