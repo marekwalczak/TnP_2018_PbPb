@@ -110,10 +110,16 @@ process.load("MuonAnalysis.TagAndProbe.heavyIon_modules_cff")
 SoftId = "passed('SoftCutBasedId')"
 ### Trigger
 LowPtTriggerProbeFlags = cms.PSet(
+
     # Double Muon Trigger Paths
     HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1 = cms.string("!triggerObjectMatchesByPath('HLT_HIUPC_DoubleMu0_NotMBHF2AND_v*',1,0).empty()"),
-    # Double Muon Trigger Filters
+    # Single Muon Trigger Paths
+    HLT_HIUPC_SingleMu0_NotMBHF2AND_v1 = cms.string("!triggerObjectMatchesByPath('HLT_HIUPC_SingleMu0_NotMBHF2AND_v*',1,0).empty()"),
+
+    # Double Muon Trigger Filters    
     HLT_HIUPC_DoubleMu0_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sDoubleMu0NotMBHF2AND').empty()"),
+    # Single Muon Trigger Filters
+    HLT_HIUPC_SingleMu0_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sSingleMu0NotMBHF2AND').empty()"),
 )
 ### Tracking
 TRACK_CUTS = "track.isNonnull"
@@ -421,9 +427,9 @@ process.tpTreeTrk = cms.EDAnalyzer("TagProbeFitTreeProducer",
 
     ),
     flags = cms.PSet(
+      LowPtTriggerProbeFlags,
       TM = cms.string("isTrackerMuon"),
       SoftId = cms.string(SoftId),
-      LowPtTriggerProbeFlags,
       isSTA = cms.string("isStandAloneMuon"),
       Glb   = cms.string("isGlobalMuon"),
       TrackCuts = cms.string(TRACK_CUTS),
@@ -490,7 +496,7 @@ process.schedule = cms.Schedule(
 process.RandomNumberGeneratorService.tkTracksNoJPsi = cms.PSet( initialSeed = cms.untracked.uint32(81) )
 process.RandomNumberGeneratorService.tkTracksNoBestJPsi = cms.PSet( initialSeed = cms.untracked.uint32(81) )
 
-process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpJpsi_Data_PbP_191113_test1.root"))
+process.TFileService = cms.Service("TFileService", fileName = cms.string("tnpJpsi_Data_PbP_191205.root"))
 
 from HLTrigger.Configuration.CustomConfigs import MassReplaceInputTag
 process = MassReplaceInputTag(process,"offlinePrimaryVertices","offlinePrimaryVerticesRecovery")

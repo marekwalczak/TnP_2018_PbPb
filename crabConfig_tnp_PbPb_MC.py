@@ -2,7 +2,7 @@ from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
 config.section_('General')
-config.General.requestName = 'TnP_HINPbPbAutumn18DR-mva98_HadroJPsi_MC_201911113'
+config.General.requestName = 'MC_20191204'
 config.General.workArea = 'crab_projects'
 config.General.transferOutputs = True
 config.General.transferLogs = False
