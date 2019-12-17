@@ -120,7 +120,7 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:tnpJpsi_MC_PbPb_191113.root"),
+    InputFileNames = cms.vstring("file:tnpJpsi_MC_PbPb_191205.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
     OutputFileName = cms.string("Output/MC/tnp_Ana_MC_1_TrkMu_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
