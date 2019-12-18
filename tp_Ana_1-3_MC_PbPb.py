@@ -144,7 +144,9 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     Categories = cms.PSet(
                           TM = cms.vstring("TM", "dummy[true=1,false=0]"),
                           SoftId = cms.vstring("SoftId", "dummy[true=1,false=0]"),
-                          HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "dummy[true=1,false=0]"),    ),
+                          HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "dummy[true=1,false=0]"),
+                          
+    ),
 
     # defines all the PDFs that will be available for the efficiency calculations; uses RooFit's "factory" syntax;
     # each pdf needs to define "signal", "backgroundPass", "backgroundFail" pdfs, "efficiency[0.9,0,1]" and "signalFractionInPassing[0.9]" are used for initial values  
