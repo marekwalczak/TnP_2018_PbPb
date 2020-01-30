@@ -57,7 +57,7 @@ process.fastFilter = cms.Sequence(process.triggerResultsFilter + process.offline
 ##
 ## ==== Merge CaloMuons and Tracks into the collection of reco::Muons  ====
 
-InAcceptance_Ups = '(abs(eta)<2.4 && pt>=3.0)'
+InAcceptance_Ups = '(abs(eta)<2.4 && pt>=1.0)'
 
 from RecoMuon.MuonIdentification.calomuons_cfi import calomuons;
 process.mergedMuons = cms.EDProducer("CaloMuonMerger",
