@@ -37,7 +37,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5,6.0,10.0,15.0,20.0,25.0,30.0,35.0),
+            pt = cms.vdouble(1.0,2.0,3.0,4.0,5.0,6.0,8.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0),
             eta = cms.vdouble(-2.4, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -150,10 +150,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:tnpJpsi_MC_PbPb_191205.root"),
+    InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1_179.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC_cent/tnp_Ana_MC_PbPb_1-3_SM_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC_cent_pTa1/tnp_MC_1-3_SM_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
