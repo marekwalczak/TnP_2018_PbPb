@@ -49,12 +49,12 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            pt = cms.vdouble(1.8, 30.),
+            pt = cms.vdouble(3.0, 5.5),
             abseta = cms.vdouble(0,0.3,0.6,0.9,1.2,1.6,2.1,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
-      ), 
+      ),  
 
 
   cms.PSet(
@@ -63,7 +63,8 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             eta = cms.vdouble(-2.4,2.4),
-            pt = cms.vdouble(0.,30.0),
+            #pt = cms.vdouble(0.,30.0),
+            pt = cms.vdouble(3.0, 5.5),
             #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220),
