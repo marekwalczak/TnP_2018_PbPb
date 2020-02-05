@@ -53,7 +53,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
-            pt = cms.vdouble(1.8, 30.),
+            pt = cms.vdouble(3.0, 5.5),
             abseta = cms.vdouble(0,0.3,0.6,0.9,1.2,1.6,2.1,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -68,7 +68,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             eta = cms.vdouble(-2.4,2.4),
-            pt = cms.vdouble(0.,30.0),
+            pt = cms.vdouble(3.0, 5.5),
             #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220),
@@ -160,7 +160,7 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1_179.root"),
+    InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
     OutputFileName = cms.string("Output/MC_cent_pTa1/tnp_MC_2_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 

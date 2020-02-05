@@ -22,7 +22,7 @@ VEFFICIENCYSET =cms.VPSet(
    # Order: 0 total, 1 pT, 2-5 pT fits in abseta bins, 6 abseta, 7 eta, 8 centrality NOTE: IS NOT SAME AS SCENARIO
    cms.PSet(
       TrkMu_1bin = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -35,7 +35,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
    cms.PSet(
       TrkMu_pt = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -50,12 +50,12 @@ VEFFICIENCYSET =cms.VPSet(
       
    cms.PSet(
       TrkMu_absetadep = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             SoftId = cms.vstring("true"),
-            pt = cms.vdouble(1.8, 30.),
+            pt = cms.vdouble(3.0, 5.5),
             abseta = cms.vdouble(0,0.3,0.6,0.9,1.2,1.6,2.1,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -65,13 +65,13 @@ VEFFICIENCYSET =cms.VPSet(
 
   cms.PSet(
       TrkMu_centdep = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             SoftId = cms.vstring("true"),
             eta = cms.vdouble(-2.4,2.4),
-            pt = cms.vdouble(0.,30.0),
+            pt = cms.vdouble(3.0, 5.5),
             #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300),
             #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220),
@@ -86,7 +86,7 @@ VEFFICIENCYSET =cms.VPSet(
 
 #   cms.PSet(
 #      TrkMu_etadep = cms.PSet(
-#         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+#         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
 #         UnbinnedVariables = cms.vstring("mass"),
 #         BinnedVariables = cms.PSet(
 #            TM = cms.vstring("true"),
@@ -101,7 +101,7 @@ VEFFICIENCYSET =cms.VPSet(
 
    cms.PSet(
       TrkMu_abseta00_09 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -114,7 +114,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
    cms.PSet(
       TrkMu_abseta09_12 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -127,7 +127,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
    cms.PSet(
       TrkMu_abseta12_21 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -140,7 +140,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
    cms.PSet(
       TrkMu_abseta21_24 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "true"),
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
@@ -192,7 +192,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     Categories = cms.PSet(
                           TM = cms.vstring("TM", "dummy[true=1,false=0]"),
                           SoftId = cms.vstring("SoftId", "dummy[true=1,false=0]"),
-                          HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1", "dummy[true=1,false=0]"),
+                          HLT_HIUPC_SingleMu0_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "dummy[true=1,false=0]"),
     ),
 
     # defines all the PDFs that will be available for the efficiency calculations; uses RooFit's "factory" syntax;
