@@ -8,7 +8,7 @@ from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
 config.section_('General')
-config.General.requestName = 'MC_20200218_STARLIGHT_coh_Ups_1S'
+config.General.requestName = 'MC_20200218_STARLIGHT_coh_Ups_1S_singlefilejobs'
 config.General.workArea = 'crab_projects_pTa1'
 config.General.transferOutputs = True
 config.General.transferLogs = False
@@ -24,7 +24,7 @@ config.section_('Data')
 #config.Data.inputDataset = '/JPsi_pThat-2_TuneCP5_HydjetDrumMB_5p02TeV_Pythia8/HINPbPbAutumn18DR-mva98_103X_upgrade2018_realistic_HI_v11-v1/AODSIM'
 config.Data.userInputFiles = open('input_LFN_coh_1S_05M.txt').readlines()
 #config.Data.inputDBS = 'global'
-config.Data.unitsPerJob = 10
+config.Data.unitsPerJob = 1
 config.Data.splitting = 'FileBased'
 config.Data.outLFNDirBase = '/store/user/%s/TagAndProbe/PbPb2018/TnP/%s' % (getUsernameFromSiteDB(), config.General.requestName)
 config.Data.publication = False
