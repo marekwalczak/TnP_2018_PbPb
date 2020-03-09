@@ -140,20 +140,24 @@ VEFFICIENCYSET =cms.VPSet(
     )
 
 #Actual selection
-if scenario == "1": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0], VEFFICIENCYSET[1])
-if scenario == "2": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[3])
-if scenario == "3": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "4": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6])
-if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[7])
-#if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3],VEFFICIENCYSET[4], VEFFICIENCYSET[5],VEFFICIENCYSET[6], VEFFICIENCYSET[7])
-if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3])
+if scenario == "1": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0])
+if scenario == "2": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[1])
+if scenario == "3": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2])
+if scenario == "4": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
+if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
+if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
+if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1.root"),
+    #InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1.root"),
+    InputFileNames = cms.vstring("file:Trees/tnp_incoh_jpsi_STARLIGHT_200226.root"),
+
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC_cent_pTa1/tnp_MC_1_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    #OutputFileName = cms.string("Output/MC_cent_pTa1/tnp_MC_1_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/SL/tnp_MC_SL_incoh_jpsi_1_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
