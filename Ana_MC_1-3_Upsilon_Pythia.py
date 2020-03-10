@@ -36,7 +36,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
             pt = cms.vdouble(3.0,3.5,4.0,4.5,5.0,5.5,6.0),
-            #eta = cms.vdouble(-2.4, 2.4),
+            eta = cms.vdouble(-2.4, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -68,45 +68,54 @@ VEFFICIENCYSET =cms.VPSet(
          )
       ),
 
-   cms.PSet(
-      TrkMu_absetavspt2 = cms.PSet(
+   cms.PSet(        
+      TrkMu_abseta00_08 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0),
-            #eta = cms.vdouble(-2.4, 2.4),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),
-      
-  cms.PSet(
-      TrkMu_centdep = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            eta = cms.vdouble(-2.4,2.4),
-            pt = cms.vdouble(3.0, 5.5),
-            tag_hiBin = cms.vdouble(100,130,150,170,180,190,200),
+            pt = cms.vdouble(3.0,3.5,4.0,4.5,5.0,5.5,6.0),
+            abseta = cms.vdouble(0.0, 0.8),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
 
+   cms.PSet(        
+      TrkMu_abseta08_16 = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            pt = cms.vdouble(3.0,3.5,4.0,4.5,5.0,5.5,6.0),
+            abseta = cms.vdouble(0.8, 1.6),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
+
+   cms.PSet(        
+      TrkMu_abseta16_24 = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            pt = cms.vdouble(3.0,3.5,4.0,4.5,5.0,5.5,6.0),
+            abseta = cms.vdouble(1.6, 2.4),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
 
     )
 
 #Actual selection
-if scenario == "1": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0])
-if scenario == "2": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[1])
-if scenario == "3": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2])
-if scenario == "4": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
-if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
-if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
-if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "7": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2])
+if scenario == "1" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0])
+if scenario == "2" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[1])
+if scenario == "3" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2])
+if scenario == "4" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
+if scenario == "5" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
+if scenario == "6" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
+if scenario == "7" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6])
+if scenario == "0" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0], VEFFICIENCYSET[1], VEFFICIENCYSET[2], VEFFICIENCYSET[3])
+if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
@@ -114,7 +123,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
     OutputFileName = cms.string("Output/SL/tnp_MC_1-3_scenario_%s_Upsilon_Pythia.root" % (scenario) ), #"mass2834" for mass range systematics 
-   #numbrer of CPUs to use for fitting
+    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
     # the pdf object with the initial and final state snapshots
