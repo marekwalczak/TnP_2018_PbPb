@@ -103,6 +103,47 @@ VEFFICIENCYSET =cms.VPSet(
          )
       ),
 
+   cms.PSet(        
+      TrkMu_abseta00_08 = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
+            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10),
+            abseta = cms.vdouble(0.0, 0.8),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
+
+   cms.PSet(        
+      TrkMu_abseta08_16 = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
+            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10),
+            abseta = cms.vdouble(0.8, 1.6),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
+
+   cms.PSet(        
+      TrkMu_abseta16_24 = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
+            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0,8.5,9.0,9.5,10),
+            abseta = cms.vdouble(1.6, 2.4),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
+
+
+
 
     )
 
@@ -114,6 +155,8 @@ if scenario == "4": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
 if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
 if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
+if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8])
+if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[5])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:

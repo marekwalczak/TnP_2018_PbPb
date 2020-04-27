@@ -25,6 +25,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 5.5),
             eta = cms.vdouble(-2.4, 2.4),
             ),
@@ -36,6 +37,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
             pt = cms.vdouble(1.0,2.0,3.0,4.0,5.0,6.0,8.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0),
             eta = cms.vdouble(-2.4, 2.4),
@@ -49,6 +51,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 5.5),
             abseta = cms.vdouble(0,0.3,0.6,0.9,1.2,1.6,2.1,2.4),
             ),
@@ -62,6 +65,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             eta = cms.vdouble(-2.4,2.4),
             pt = cms.vdouble(3.0, 5.5),
             #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
@@ -81,6 +85,7 @@ VEFFICIENCYSET =cms.VPSet(
 #         EfficiencyCategoryAndState = cms.vstring("TM", "true"),
 #         UnbinnedVariables = cms.vstring("mass"),
 #         BinnedVariables = cms.PSet(
+#            tag_hiBin = cms.vdouble(150,200),
 #            pt = cms.vdouble(1.8, 30),
 #            eta = cms.vdouble(-2.4,-2.1,-1.6,-1.2,-0.9,-0.6,-0.3,0,0.3,0.6,0.9,1.2,1.6,2.1,2.4),
 #            ),
@@ -95,6 +100,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 4.0, 4.5, 5.5),
             abseta = cms.vdouble(0, 0.9),
             ),
@@ -106,6 +112,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 4.0, 4.5, 5.5),
             abseta = cms.vdouble(0.9, 1.2),
             ),
@@ -117,6 +124,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 4.0, 4.5, 5.5),
             abseta = cms.vdouble(1.2,2.1),
             ),
@@ -128,6 +136,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(150,200),
             pt = cms.vdouble(3.0, 4.0, 4.5, 5.5),
             abseta = cms.vdouble(2.1,2.4),
             ),
