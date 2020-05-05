@@ -47,7 +47,7 @@ VEFFICIENCYSET =cms.VPSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            pt = cms.vdouble(1.0, 5.0),
+            pt = cms.vdouble(3.0, 5.5),
             abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
