@@ -51,8 +51,8 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(150,200),
-            pt = cms.vdouble(1.0, 2.5),
-            abseta = cms.vdouble(1.2,1.6,2.0,2.4),
+            pt = cms.vdouble(1.5, 2.25),
+            abseta = cms.vdouble(1.6,1.8,2.0,2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -135,21 +135,17 @@ if scenario == "3" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2])
 if scenario == "4" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
 if scenario == "5" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
 if scenario == "0" : EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3])
-if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6])
+if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
     
-    #InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_coh_jpsi_STARLIGHT_200227.root"),
-    #InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_incoh_jpsi_STARLIGHT_200226.root"),
     InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200130_pTa1.root"), # PYTHIA MC
     
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
     
-    #OutputFileName = cms.string("Output/SL/tnp_MC_SL_coh_jpsi_1-3_scenario_%s.root" % (scenario) ), 
-    #OutputFileName = cms.string("Output/SL/tnp_MC_SL_incoh_jpsi_1-3_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
-    OutputFileName = cms.string("Output/SL/tnp_MC_jpsi_1-3_scenario_%s_Pythia.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/SL_jpsi/tnp_MC_jpsi_1-3_scenario_%s_Pythia.root" % (scenario) ), #"mass2834" for mass range systematics 
     
     #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
