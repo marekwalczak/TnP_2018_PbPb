@@ -1,8 +1,8 @@
-from CRABClient.UserUtilities import config, getUsernameFromSiteDB
+from CRABClient.UserUtilities import config
 config = config()
 
 config.section_('General')
-config.General.requestName = 'data_20200129'
+config.General.requestName = 'data_20200129_dupa'
 config.General.workArea = 'crab_projects_pTa1'
 config.General.transferOutputs = True
 config.General.transferLogs = False
@@ -22,7 +22,7 @@ config.Data.unitsPerJob = 50
 config.Data.splitting = 'LumiBased'
 config.Data.lumiMask = '/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/HI/PromptReco/Cert_326381-327564_HI_PromptReco_Collisions18_JSON_HF_and_MuonPhys.txt'
 config.Data.runRange = '326381-327564'
-config.Data.outLFNDirBase = '/store/user/%s/TagAndProbe/PbPb2018/TnP/%s' % (getUsernameFromSiteDB(), config.General.requestName)
+config.Data.outLFNDirBase = '/store/user/%s/TagAndProbe/PbPb2018/TnP/%s' % ("mwalczak", config.General.requestName)
 config.Data.publication = False
 config.Data.outputDatasetTag = config.General.requestName
 
