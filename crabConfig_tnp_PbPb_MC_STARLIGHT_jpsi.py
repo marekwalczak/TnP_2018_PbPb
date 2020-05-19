@@ -1,9 +1,16 @@
-from CRABClient.UserUtilities import config, getUsernameFromSiteDB
+
+
+
+
+
+
+
+from CRABClient.UserUtilities import config
 config = config()
 
 config.section_('General')
-config.General.requestName = 'coh_jpsi_200227'
-config.General.workArea = 'crab_projects_STARLIGHT'
+config.General.requestName = 'coh_jpsi_200515'
+config.General.workArea = 'crab_projects_STARLIGHT_Acc'
 config.General.transferOutputs = True
 config.General.transferLogs = False
 
@@ -20,7 +27,7 @@ config.Data.inputDataset = '/STARlight_CohJpsi2MuMu_PbPb5TeV/shuaiy-STARlight_Co
 config.Data.inputDBS = 'phys03'
 config.Data.unitsPerJob = 1
 config.Data.splitting = 'FileBased'
-config.Data.outLFNDirBase = '/store/user/%s/TagAndProbe/PbPb2018/TnP/%s' % (getUsernameFromSiteDB(), config.General.requestName)
+config.Data.outLFNDirBase = '/store/user/%s/TagAndProbe/PbPb2018/TnP/%s' % ("mwalczak", config.General.requestName)
 config.Data.publication = False
 config.Data.allowNonValidInputDataset = True
 config.Data.outputDatasetTag = config.General.requestName

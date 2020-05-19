@@ -18,186 +18,44 @@ PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
 
+
 VEFFICIENCYSET =cms.VPSet(
 
-   cms.PSet(
-      Tot_absetadep_pT1_1d5 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0, 1.5),
-            abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-      
-   cms.PSet(
-      Tot_absetadep_pT1d5_2 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.5, 2.0),
-            abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-      
-   cms.PSet(
-      Tot_absetadep_pT2_2d5 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.0, 2.5),
-            abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-
-   cms.PSet(
-      Tot_absetadep_pT2d5_3 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.5, 3.0),
-            abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-
-
-   cms.PSet(
-      Tot_absetadep_pT3_5 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(3.0, 5.0),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-   cms.PSet(
-      Tot_absetadep_pT5_7 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(5.0, 7.0),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-   cms.PSet(
-      Tot_absetadep_pT7_10 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(7.0, 10.0),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-      
-   cms.PSet(
-      Tot_absetadep_pT1_10 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0, 10.0),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-      
    cms.PSet(        
-      Tot_pTdep_abseta00_08 = cms.PSet(
+      Tot_pTdep_abseta20_24 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
-            abseta = cms.vdouble(0.0, 0.8),
+            pt = cms.vdouble(1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0),
+            abseta = cms.vdouble(2.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
 
    cms.PSet(        
-      Tot_pTdep_abseta08_16 = cms.PSet(
+      Tot_pTdep_abseta20_22 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
-            abseta = cms.vdouble(0.8, 1.6),
+            pt = cms.vdouble(1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0),
+            abseta = cms.vdouble(2.0,2.2),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
 
    cms.PSet(        
-      Tot_pTdep_abseta16_24 = cms.PSet(
+      Tot_pTdep_abseta22_24 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
-            abseta = cms.vdouble(1.6, 2.4),
+            pt = cms.vdouble(1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0),
+            abseta = cms.vdouble(2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
-
-   cms.PSet(
-      Tot_absetavspT = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            tag_hiBin = cms.vdouble(180,200),
-            #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.0,4.0,7.0,10.0,15.0,20.0,25.0,30.0),
-            #eta = cms.vdouble(-2.4, 2.4),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),
-
-  cms.PSet(
-      Tot_centdep = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("TM", "true", "SoftId", "true", "HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            eta = cms.vdouble(-2.4,2.4),
-            #pt = cms.vdouble(0.,30.0),
-            pt = cms.vdouble(3.0, 5.5),
-            #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
-            #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300),
-            #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220),
-            #tag_hiBin = cms.vdouble(100,110,120,130,140,150,160,170,180,190,200,210,220),
-            tag_hiBin = cms.vdouble(130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210),
-            #tag_hiBin = cms.vdouble(0,50,100,150,200,250,300,350,500),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),
-
-
-
 
 
     )
@@ -209,17 +67,22 @@ if scenario == "3": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2])
 if scenario == "4": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[3])
 if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
 if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
-if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5],VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8],VEFFICIENCYSET[9], VEFFICIENCYSET[10])
-if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3])
+if scenario == "9": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[8])
+if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2])
+if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2])
+
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200514_Acc.root"),
+    
+    InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_MC_PbPb_200515_SL_Inc_jpsi_Acc.root"),
+    
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC/tnp_MC_1-3_scenario_%s_Acc_180.root" % (scenario) ), #"mass2834" for mass range systematics 
-   #numbrer of CPUs to use for fitting
+    
+    OutputFileName = cms.string("Output/SL_jpsi/tnp_SL_inc_jpsi_1-3_scenario_%s_Acc_180.root" % (scenario) ), #"mass2834" for mass range systematics 
+    
+    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
     # the pdf object with the initial and final state snapshots
