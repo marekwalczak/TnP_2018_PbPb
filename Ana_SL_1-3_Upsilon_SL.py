@@ -184,14 +184,14 @@ if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "9": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[8])
 if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
 if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5],VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8],VEFFICIENCYSET[9])
-if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3])
+if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[7],VEFFICIENCYSET[8],VEFFICIENCYSET[9])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
     InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_MC_PbPb_200515_SL_Inc_Ups_Acc.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/SL_upsilon/tnp_SL_inc_Ups_1-3_scenario_%s_Acc_180.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/SL_upsilon/tnp_SL_inc_Ups_1-3_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
     #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and

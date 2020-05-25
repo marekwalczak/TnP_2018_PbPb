@@ -18,18 +18,16 @@ PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
 
-
-
 VEFFICIENCYSET =cms.VPSet(
 
    cms.PSet(
-      ID_absetadep_pT1_1d5 = cms.PSet(
+      ID_absetadep_pT1d4_1d9 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0, 1.5),
+            pt = cms.vdouble(1.4, 1.9),
             abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -37,13 +35,13 @@ VEFFICIENCYSET =cms.VPSet(
       ),  
       
    cms.PSet(
-      ID_absetadep_pT1d5_2 = cms.PSet(
+      ID_absetadep_pT1d9_2d4 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.5, 2.0),
+            pt = cms.vdouble(1.9, 2.4),
             abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -51,13 +49,13 @@ VEFFICIENCYSET =cms.VPSet(
       ),  
       
    cms.PSet(
-      ID_absetadep_pT2_2d5 = cms.PSet(
+      ID_absetadep_pT2d4_2d9 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.0, 2.5),
+            pt = cms.vdouble(2.4, 2.9),
             abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -65,13 +63,13 @@ VEFFICIENCYSET =cms.VPSet(
       ),  
 
    cms.PSet(
-      ID_absetadep_pT2d5_3 = cms.PSet(
+      ID_absetadep_pT2d9_3d4 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.5, 3.0),
+            pt = cms.vdouble(2.9, 3.4),
             abseta = cms.vdouble(0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -79,53 +77,40 @@ VEFFICIENCYSET =cms.VPSet(
       ),  
       
    cms.PSet(
-      ID_absetadep_pT3_5 = cms.PSet(
+      ID_absetadep_pT3d4_6 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(3.0, 5.0),
+            pt = cms.vdouble(3.4, 6.0),
             abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),  
    cms.PSet(
-      ID_absetadep_pT5_7 = cms.PSet(
+      ID_absetadep_pT6_10 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(5.0, 7.0),
+            pt = cms.vdouble(6.0, 10.0),
             abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),  
+
    cms.PSet(
-      ID_absetadep_pT7_10 = cms.PSet(
+      ID_absetadep_pT1d4_10 = cms.PSet(
          EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(7.0, 10.0),
-            abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),  
-      
-   cms.PSet(
-      ID_absetadep_pT1_10 = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            TM = cms.vstring("true"),
-            tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0, 10.0),
+            pt = cms.vdouble(1.4, 10.0),
             abseta = cms.vdouble(0,0.4,0.8,1.2,1.6,2.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -139,7 +124,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
+            pt = cms.vdouble(1.4,1.9,2.4,2.9,3.4,4.0,5.0,6.0,10),
             abseta = cms.vdouble(0.0, 0.8),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -153,7 +138,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
+            pt = cms.vdouble(1.4,1.9,2.4,2.9,3.4,4.0,5.0,6.0,10),
             abseta = cms.vdouble(0.8, 1.6),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -167,7 +152,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,7.0,10),
+            pt = cms.vdouble(1.4,1.9,2.4,2.9,3.4,4.0,5.0,6.0,10),
             abseta = cms.vdouble(1.6, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -182,7 +167,7 @@ VEFFICIENCYSET =cms.VPSet(
             TM = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5),
+            pt = cms.vdouble(1.4,1.9,2.4,2.9,3.4,4.0,5.0,6.0,10),
             #eta = cms.vdouble(-2.4, 2.4),
             abseta = cms.vdouble(0.0,0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.6,1.8,2.0,2.2,2.4),
             ),
@@ -196,21 +181,13 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             TM = cms.vstring("true"),
-            eta = cms.vdouble(-2.4,2.4),
-            #pt = cms.vdouble(0.,30.0),
-            pt = cms.vdouble(3.0, 5.5),
-            #tag_hiBin = cms.vdouble(0,10,20,40,60,80,100,150,200),
-            #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300),
-            #tag_hiBin = cms.vdouble(0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220),
-            #tag_hiBin = cms.vdouble(100,110,120,130,140,150,160,170,180,190,200,210,220),
-            tag_hiBin = cms.vdouble(130,135,140,145,150,155,160,165,170,175,180,185,190,195,200,205,210),
-            #tag_hiBin = cms.vdouble(0,50,100,150,200,250,300,350,500),
+            abseta = cms.vdouble(0.0, 2.4),
+            pt = cms.vdouble(3.4, 6.0),
+            tag_hiBin = cms.vdouble(130,135,140,145,150,155,160,165,170,175,180,185,190,195,200),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
-
-
 
 
 
@@ -225,9 +202,7 @@ if scenario == "5": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4])
 if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "9": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[8])
 if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5],VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8],VEFFICIENCYSET[9], VEFFICIENCYSET[10])
-if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3])
-
+if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5],VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8],VEFFICIENCYSET[9])
 
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
@@ -235,7 +210,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     InputFileNames = cms.vstring("file:Trees/tnpJpsi_MC_PbPb_200514_Acc.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC/tnp_MC_2_scenario_%s_Acc_180.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC/tnp_MC_2_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -247,7 +222,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     
     # defines all the real variables of the probes available in the input tree and intended for use in the efficiencies
     Variables = cms.PSet(
-                         mass             = cms.vstring("Tag-Probe Mass", "2.8", "3.4", "GeV/c^{2}"),  # mass range syst: 2.8-3.4, nominal: 2.6-3.5
+                         mass             = cms.vstring("Tag-Probe Mass", "2.6", "3.5", "GeV/c^{2}"),  # mass range syst: 2.8-3.4, nominal: 2.6-3.5
                          pt               = cms.vstring("Probe p_{T}", "0.0", "1000", "GeV/c"),
                          eta              = cms.vstring("Probe #eta", "-2.4", "2.4", ""),
                          abseta           = cms.vstring("Probe |#eta|", "0", "2.5", ""),
@@ -301,7 +276,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
       ),
         #cb + cb:
       cbcbPlusPol1 = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])", 
         "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
         "CBShape::signal2(mass, mean, sigma2, alpha, n)",
         "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
@@ -310,7 +285,29 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "efficiency[0.9,0.0,1.0]",
         "signalFractionInPassing[0.9]"
       ),
+        #cb + cb:
+      cbcbPlusPol1_loose = cms.vstring(
+        "CBShape::signal1(mass, mean[3.08,3.00,3.3], sigma1[0.03, 0.005, 0.20], alpha[1.85, 0.05, 100], n[1.7, 0.1, 100])",  # loose
+        "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,0.6,4.8],sigma1})",
+        "CBShape::signal2(mass, mean, sigma2, alpha, n)",
+        "SUM::signal(frac[0.8,0.05,2.]*signal1,signal2)",
+        "Chebychev::backgroundPass(mass, {cPass[0.,-4,4]})",
+        "Chebychev::backgroundFail(mass, {cFail[0.,-4,4]})",
+        "efficiency[0.9,0.0,1.0]",
+        "signalFractionInPassing[0.9]"
+      ),
       
+        #cb + cb:
+      cbcbPlusPol2 = cms.vstring(
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
+        "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
+        "CBShape::signal2(mass, mean, sigma2, alpha, n)",
+        "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
+        "Chebychev::backgroundPass(mass, {cPass[0.,-2,2], cPass2[0.,-2,2]})",
+        "Chebychev::backgroundFail(mass, {cFail[0.,-2,2], cFail2[0.,-2,2]})",
+        "efficiency[0.9,0.0,1.0]",
+        "signalFractionInPassing[0.9]"
+      ),
 
     ),
    Efficiencies = EFFICIENCYSET
