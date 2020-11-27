@@ -13,7 +13,7 @@ process = cms.Process("TagProbe")
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )    
-PDFName = "cbcbPlusPol1_loose" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
+PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
 
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
@@ -228,7 +228,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     InputFileNames = cms.vstring("file:Trees/tnpJpsi_Data_PbPb_200513_Acc.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/Data/tnp_DATA_3_scenario_%s_cbcbPlusPol1_loose.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/Data/tnp_DATA_3_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
