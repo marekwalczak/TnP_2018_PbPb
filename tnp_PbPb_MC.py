@@ -36,7 +36,7 @@ process.load("MuonAnalysis.TagAndProbe.OfflinePrimaryVerticesRecovery_cfi")
 process.load('MuonAnalysis.TagAndProbe.collisionEventSelection_cff')
 ### Trigger selection
 process.load("HLTrigger.HLTfilters.triggerResultsFilter_cfi")
-process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_HIUPC_SingleMu0_NotMBHF2AND_v*' )
+process.triggerResultsFilter.triggerConditions = cms.vstring( 'HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v*' )
 process.triggerResultsFilter.hltResults = cms.InputTag("TriggerResults","","HLT")
 process.triggerResultsFilter.l1tResults = cms.InputTag("") # keep empty!
 process.triggerResultsFilter.throw = False
@@ -56,9 +56,10 @@ process.fastFilter = cms.Sequence(process.triggerResultsFilter + process.offline
 ##
 ## ==== Merge CaloMuons and Tracks into the collection of reco::Muons  ====
 
-#InAcceptance_Ups = '(abs(eta)<2.4 && pt>=1.0)'
+# InAcceptance_Ups = '(abs(eta)<2.4 && pt>=1.0)'
+# InAcceptance_Ups = '( abs(eta) < 2.4 && ( pt > 3.35 || ( abs(eta) > 0.3 && pt > 3.25) ||  (pt > (-2.25*abs(eta) + 5.5) && pt > 2.35) || (pt > (-4.75*abs(eta) + 10.9) &&  pt > 1.4)) )'
 
-InAcceptance_Ups = '( abs(eta) < 2.4 && ( pt > 3.35 || ( abs(eta) > 0.3 && pt > 3.25) ||  (pt > (-2.25*abs(eta) + 5.5) && pt > 2.35) || (pt > (-4.75*abs(eta) + 10.9) &&  pt > 1.4)) )'
+InAcceptance_Ups = '( (abs(eta) < 2.4) && ( (pt > 3.3) ||  ((pt > (-3.0*abs(eta) + 6.3)) && (pt > 2.1)) || ((pt > (-2.0*abs(eta) + 5.3)) &&  (pt > 1.1))) )'
 
 
 
@@ -113,15 +114,18 @@ process.load("MuonAnalysis.TagAndProbe.heavyIon_modules_cff")
 SoftId = "passed('SoftCutBasedId')"
 ### Trigger
 LowPtTriggerProbeFlags = cms.PSet(
+
     # Double Muon Trigger Paths
     HLT_HIUPC_DoubleMu0_NotMBHF2AND_v1 = cms.string("!triggerObjectMatchesByPath('HLT_HIUPC_DoubleMu0_NotMBHF2AND_v*',1,0).empty()"),
-    # Double Muon Trigger Filters
-    HLT_HIUPC_DoubleMu0_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sDoubleMu0NotMBHF2AND').empty()"),
-
     # Single Muon Trigger Paths
     HLT_HIUPC_SingleMu0_NotMBHF2AND_v1 = cms.string("!triggerObjectMatchesByPath('HLT_HIUPC_SingleMu0_NotMBHF2AND_v*',1,0).empty()"),
+    HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v1 = cms.string("!triggerObjectMatchesByPath('HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v*',1,0).empty()"),
+
+    # Double Muon Trigger Filters    
+    HLT_HIUPC_DoubleMu0_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sDoubleMu0NotMBHF2AND').empty()"),
     # Single Muon Trigger Filters
     HLT_HIUPC_SingleMu0_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sSingleMu0NotMBHF2AND').empty()"),
+    HLT_HIUPC_SingleMuOpen_NotMBHF2AND_Filter = cms.string("!triggerObjectMatchesByFilter('hltL1sSingleMuOpenNotMBHF2AND').empty()"),
 )
 ### Tracking
 TRACK_CUTS = "track.isNonnull"
