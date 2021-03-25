@@ -60,7 +60,21 @@ process.fastFilter = cms.Sequence(process.triggerResultsFilter + process.offline
 #InAcceptance_Ups = '(abs(eta)<2.4 && pt>=1.0)'
 #InAcceptance_Ups = '( abs(eta) < 2.4 && ( pt > 3.35 || ( abs(eta) > 0.3 && pt > 3.25) ||  (pt > (-2.25*abs(eta) + 5.5) && pt > 2.35) || (pt > (-4.75*abs(eta) + 10.9) &&  pt > 1.4)) )'
 
-InAcceptance_Ups = '( (abs(eta) < 2.4) && ( (pt > 3.3) ||  ((pt > (-3.0*abs(eta) + 6.3)) && (pt > 2.1)) || ((pt > (-2.0*abs(eta) + 5.3)) &&  (pt > 1.1))) )'
+# old TRG:
+#InAcceptance_Ups = '( (abs(eta) < 2.4) && ( (pt > 3.3) ||  ((pt > (-3.0*abs(eta) + 6.3)) && (pt > 2.1)) || ((pt > (-1.8*abs(eta) + 4.98)) &&  (pt > 1.2))) )'
+
+# old SoftID:
+#InAcceptance_Ups = '( (abs(eta) < 2.4)    &&   ( (pt > 3.3)     ||  ((pt > (-3.0*abs(eta) + 6.3)) && (pt > 2.1))    || ((pt > (-4.0/3.0*abs(eta) + 1.4*7.0/3.0)) &&  (pt > 1.0) && (abs(eta)>1.4))  ))'
+
+
+
+# naw TRG - bug corrected on my side
+InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( (pt > 3.45) || (abs(eta)>0.3 &&  abs(eta)<1.1 &&  pt>3.3 )    ||  ( (pt > ((-1.15/0.35)*abs(eta) + 6.91429)) && (pt > 2.15) )    ||  ( (abs(eta) > 1.45) && (abs(eta) < 1.65) && (pt > 2.15))  ||  ( (pt > ((-0.95/0.45)*abs(eta) + 5.63333)) &&  (pt > 1.2) && (pt <= 2.15) ) ) )'
+
+# new SoftID - extended for Andre
+#InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( ( pt > 3.3)     ||  ( (pt > (-4.0*abs(eta) + 7.3)) && (pt > 2.1) )    ||  ( (abs(eta) > 1.3) && (pt < 2.1) && (pt > 1.53))  ||  ( (pt > (-1.325*abs(eta) + 3.2525)) &&  (pt > 1.0) && (pt <= 1.53) ) ))'
+
+
 
 
 
