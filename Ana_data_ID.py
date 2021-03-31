@@ -144,6 +144,7 @@ if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "7": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6])
 if scenario == "8": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[7])
 if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
+if scenario == "11": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[4], VEFFICIENCYSET[5])
 if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6], VEFFICIENCYSET[7])
 
 
@@ -153,7 +154,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     #InputFileNames = cms.vstring("file:Trees/tnpJpsi_Data_PbPb_200130_pTa1.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/Data/tnp_DATA_ID_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/Data/tnp_DATA_ID_scenario_%s_290mass350_pol1_unfix.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -165,7 +166,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     
     # defines all the real variables of the probes available in the input tree and intended for use in the efficiencies
     Variables = cms.PSet(
-                         mass             = cms.vstring("Tag-Probe Mass", "2.5", "3.5", "GeV/c^{2}"),  # mass range syst: 2.6-3.5, nominal: 2.5 - 3.5       # oryginal: mass range syst: 2.8-3.4, nominal: 2.6-3.5
+                         mass             = cms.vstring("Tag-Probe Mass", "2.9", "3.5", "GeV/c^{2}"),  # mass range syst: 2.6-3.5, nominal: 2.5 - 3.5       # oryginal: mass range syst: 2.8-3.4, nominal: 2.6-3.5
                          pt               = cms.vstring("Probe p_{T}", "0.0", "1000", "GeV/c"),
                          eta              = cms.vstring("Probe #eta", "-2.4", "2.4", ""),
                          abseta           = cms.vstring("Probe |#eta|", "0", "2.5", ""),
@@ -230,6 +231,17 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "efficiency[0.9,0.0,1.0]",
         "signalFractionInPassing[0.9]"
       ),
+       #cb + cb:
+      cbcbPlusPol1_fixed = cms.vstring(
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[2, 1, 3], n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
+        "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
+        "CBShape::signal2(mass, mean, sigma2, alpha, n)",
+        "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
+        "Chebychev::backgroundPass(mass, {cPass[0.,-2,2]})",
+        "Chebychev::backgroundFail(mass, {cFail[0.,-2,2]})",
+        "efficiency[0.9,0.0,1.0]",
+        "signalFractionInPassing[0.9]"
+      ),
         #cb + cb:
       cbcbPlusPol1_loose = cms.vstring(
         "CBShape::signal1(mass, mean[3.08,3.00,3.3], sigma1[0.03, 0.005, 0.20], alpha[1.85, 0.05, 100], n[1.7, 0.1, 100])",  # loose
@@ -242,9 +254,9 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "signalFractionInPassing[0.9]"
       ),
       
-        #cb + cb:
-      cbcbPlusPol2 = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
+        #cb + cb: n[2, 1, 3])", 
+      cbcbPlusPol2_fixed = cms.vstring(
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[2, 1, 3], n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
         "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
         "CBShape::signal2(mass, mean, sigma2, alpha, n)",
         "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",

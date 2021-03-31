@@ -68,10 +68,10 @@ process.fastFilter = cms.Sequence(process.triggerResultsFilter + process.offline
 
 
 # naw TRG - bug corrected on my side
-InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( (pt > 3.45) || (abs(eta)>0.3 &&  abs(eta)<1.1 &&  pt>3.3 )    ||  ( (pt > ((-1.15/0.35)*abs(eta) + 6.91429)) && (pt > 2.15) )    ||  ( (abs(eta) > 1.45) && (abs(eta) < 1.65) && (pt > 2.15))  ||  ( (pt > ((-0.95/0.45)*abs(eta) + 5.63333)) &&  (pt > 1.2) && (pt <= 2.15) ) ) )'
+#InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( (pt > 3.45) || (abs(eta)>0.3 &&  abs(eta)<1.1 &&  pt>3.3 )    ||  ( (pt > ((-1.15/0.35)*abs(eta) + 6.91429)) && (pt > 2.15) )    ||  ( (abs(eta) > 1.45) && (abs(eta) < 1.65) && (pt > 2.15))  ||  ( (pt > ((-0.95/0.45)*abs(eta) + 5.63333)) &&  (pt > 1.2) && (pt <= 2.15) ) ) )'
 
 # new SoftID - extended for Andre
-#InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( ( pt > 3.3)     ||  ( (pt > (-4.0*abs(eta) + 7.3)) && (pt > 2.1) )    ||  ( (abs(eta) > 1.3) && (pt < 2.1) && (pt > 1.53))  ||  ( (pt > (-1.325*abs(eta) + 3.2525)) &&  (pt > 1.0) && (pt <= 1.53) ) ))'
+InAcceptance_Ups = '( (abs(eta) < 2.4)    &&  ( ( pt > 3.3)     ||  ( (pt > (-4.0*abs(eta) + 7.3)) && (pt > 2.1) )    ||  ( (abs(eta) > 1.3) && (pt < 2.1) && (pt > 1.53))  ||  ( (pt > (-1.325*abs(eta) + 3.2525)) &&  (pt > 1.0) && (pt <= 1.53) ) ))'
 
 
 
@@ -147,7 +147,7 @@ TRACK_CUTS = "track.isNonnull"
 ## ==== Tag muons
 process.tagMuons = cms.EDFilter("PATMuonSelector",
     src = cms.InputTag("patMuonsWithTrigger"),
-    cut = cms.string(InAcceptance_Ups+" && "+SoftId+" && !triggerObjectMatchesByPath('HLT_HIUPC_SingleMu0_NotMBHF2AND_v*',1,0).empty()"),
+    cut = cms.string(InAcceptance_Ups+" && "+SoftId+" && !triggerObjectMatchesByPath('HLT_HIUPC_SingleMu0_NotMBHF2AND_v*',1,0).empty()"), # +" && !triggerObjectMatchesByPath('HLT_HIUPC_SingleMu0_NotMBHF2AND_v*',1,0).empty()"
 )
 process.oneTag = cms.EDFilter("CandViewCountFilter", src = cms.InputTag("tagMuons"), minNumber = cms.uint32(1))
 process.pseudoTag = cms.EDFilter("MuonSelector",
