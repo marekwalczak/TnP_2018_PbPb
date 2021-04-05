@@ -129,6 +129,19 @@ VEFFICIENCYSET =cms.VPSet(
       ),
 
 
+   cms.PSet(
+      Trk_ID_etadep = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("SoftId", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            tag_hiBin = cms.vdouble(180,200),
+            pt = cms.vdouble(1.0, 10.0),
+            eta = cms.vdouble(-2.4,-1.2,0.0,1.2,2.4),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),  
+
 
 
 
@@ -144,7 +157,7 @@ if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "7": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6])
 if scenario == "8": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[7])
 if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6], VEFFICIENCYSET[7])
+if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8])
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
