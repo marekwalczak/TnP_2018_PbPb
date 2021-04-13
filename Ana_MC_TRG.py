@@ -13,7 +13,7 @@ process = cms.Process("TagProbe")
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )    
-PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
+PDFName = "cbcbPlusPol2" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
 
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
@@ -32,7 +32,7 @@ VEFFICIENCYSET =cms.VPSet(
             SoftId = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10),
-            abseta = cms.vdouble(0, 2.4),
+            eta = cms.vdouble(-2.4, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -74,7 +74,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.15,2.7,3.3,4.3,5.3,10), #            pt = cms.vdouble(2.15,2.5,3.0,3.75,4.5,5.5,10),
+            pt = cms.vdouble(2.15,2.7,3.3,4.3,5.3,9), #            pt = cms.vdouble(2.15,2.5,3.0,3.75,4.5,5.5,10),
             abseta = cms.vdouble(1.1, 1.6),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -88,7 +88,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.2,1.7,2.2,2.7,3.3,10),
+            pt = cms.vdouble(1.2,1.45,1.7,2.2,2.7,3.3,8),
             abseta = cms.vdouble(1.6, 2.1),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -102,7 +102,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.2,1.5,1.8,2.3,2.8,3.3,10),
+            pt = cms.vdouble(1.2,1.5,1.8,2.3,2.8,3.3,7),
             abseta = cms.vdouble(2.1, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -110,21 +110,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
       
       
-   cms.PSet(
-      Trg_absetavspT = cms.PSet(
-         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v1", "true"),
-         UnbinnedVariables = cms.vstring("mass"),
-         BinnedVariables = cms.PSet(
-            SoftId = cms.vstring("true"),
-            tag_hiBin = cms.vdouble(180,200),
-            #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.2,2.0,3.0,4.0,5.0,6.0,10),
-            #eta = cms.vdouble(-2.4, 2.4),
-            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
-            ),
-         BinToPDFmap = cms.vstring(PDFName)
-         )
-      ),
+
 
   cms.PSet(
       Trg_centdep = cms.PSet(
@@ -155,7 +141,21 @@ VEFFICIENCYSET =cms.VPSet(
          )
       ),
 
-
+   cms.PSet(
+      Trg_absetavspT = cms.PSet(
+         EfficiencyCategoryAndState = cms.vstring("HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v1", "true"),
+         UnbinnedVariables = cms.vstring("mass"),
+         BinnedVariables = cms.PSet(
+            SoftId = cms.vstring("true"),
+            tag_hiBin = cms.vdouble(180,200),
+            #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
+            pt = cms.vdouble(1.2,2.0,3.0,4.0,5.0,6.0,10),
+            #eta = cms.vdouble(-2.4, 2.4),
+            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
+            ),
+         BinToPDFmap = cms.vstring(PDFName)
+         )
+      ),
     )
 
 #Actual selection
@@ -168,7 +168,7 @@ if scenario == "6": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[5])
 if scenario == "7": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[6])
 if scenario == "8": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[7])
 if scenario == "10": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5])
-if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6], VEFFICIENCYSET[7], VEFFICIENCYSET[8])
+if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1],VEFFICIENCYSET[2], VEFFICIENCYSET[3], VEFFICIENCYSET[4], VEFFICIENCYSET[5], VEFFICIENCYSET[6], VEFFICIENCYSET[7])
 
 
 
@@ -177,7 +177,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     InputFileNames = cms.vstring("file:Trees/TRG_MC_20210125.root"),
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s_25m33_newBins_new.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -189,7 +189,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     
     # defines all the real variables of the probes available in the input tree and intended for use in the efficiencies
     Variables = cms.PSet(
-                         mass             = cms.vstring("Tag-Probe Mass", "2.5", "3.5", "GeV/c^{2}"),  # mass range syst: 2.6-3.5, nominal: 2.5 - 3.5       # oryginal: mass range syst: 2.8-3.4, nominal: 2.6-3.5
+                         mass             = cms.vstring("Tag-Probe Mass", "2.5", "3.3", "GeV/c^{2}"),  # mass range syst: 2.6-3.5, nominal: 2.5 - 3.5       # oryginal: mass range syst: 2.8-3.4, nominal: 2.6-3.5
                          pt               = cms.vstring("Probe p_{T}", "0.0", "1000", "GeV/c"),
                          eta              = cms.vstring("Probe #eta", "-2.4", "2.4", ""),
                          abseta           = cms.vstring("Probe |#eta|", "0", "2.5", ""),
