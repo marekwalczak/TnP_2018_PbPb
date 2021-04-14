@@ -174,10 +174,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/TRG_data_20210125.root"),
+    InputFileNames = cms.vstring("file:Trees/TRG_data_20210325_Tag_SMuOpen.root"), # TRG_data_20210125.root
     InputDirectoryName = cms.string("tpTreeTrk"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/Data/tnp_DATA_TRG_scenario_%s_25m33_newBins_new.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/Data/tnp_DATA_TRG_scenario_%s_25m33_Tag_muOpen.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
