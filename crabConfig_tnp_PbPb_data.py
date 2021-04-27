@@ -2,14 +2,14 @@ from CRABClient.UserUtilities import config
 config = config()
 
 config.section_('General')
-config.General.requestName = 'data_20210330_Vanderbilt'
-config.General.workArea = 'crab_projects_TRG_Tag_SoftIDonly'
+config.General.requestName = 'data_20210419'
+config.General.workArea = 'crab_projects_Both_v1'
 config.General.transferOutputs = True
 config.General.transferLogs = False
 
 config.section_('JobType')
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'crab_projects_TRG_Tag_SoftIDonly/tnp_PbPb_data.py'
+config.JobType.psetName = 'tnp_PbPb_data.py'
 config.JobType.maxMemoryMB = 4000
 config.JobType.maxJobRuntimeMin = 1220
 config.JobType.allowUndistributedCMSSW = True

@@ -30,6 +30,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10),
             eta = cms.vdouble(-2.4, 2.4),
@@ -45,6 +48,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10.0),
             abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
@@ -59,6 +65,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(3.3,4.0,4.7,5.5,10),
             abseta = cms.vdouble(0.0, 1.1),
@@ -73,6 +82,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(2.15,2.7,3.3,4.3,5.3,9), #            pt = cms.vdouble(2.15,2.5,3.0,3.75,4.5,5.5,10),
             abseta = cms.vdouble(1.1, 1.6),
@@ -87,6 +99,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2,1.45,1.7,2.2,2.7,3.3,8),
             abseta = cms.vdouble(1.6, 2.1),
@@ -101,6 +116,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2,1.5,1.8,2.3,2.8,3.3,7),
             abseta = cms.vdouble(2.1, 2.4),
@@ -118,6 +136,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             abseta = cms.vdouble(0.0, 2.4),
             pt = cms.vdouble(1.2, 10.0),
             tag_hiBin = cms.vdouble(140,150,160,170,180,190,200),
@@ -133,6 +154,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10.0),
             eta = cms.vdouble(-2.4,-1.2,0.0,1.2,2.4),
@@ -147,6 +171,9 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             SoftId = cms.vstring("true"),
+            tag_TightIdReco = cms.vstring("true"),
+            InAcceptance_Ups_TRG = cms.vstring("true"),
+            tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
             pt = cms.vdouble(1.2,2.0,3.0,4.0,5.0,6.0,10),
@@ -174,10 +201,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/TRG_MC_20210125.root"),
-    InputDirectoryName = cms.string("tpTreeTrk"),
+    InputFileNames = cms.vstring("file:Trees/Both_v1_MC.root"),
+    InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s_25m33_newBins_new.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s_Both_test4.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -199,6 +226,9 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     Categories = cms.PSet(
                           TM = cms.vstring("TM", "dummy[true=1,false=0]"),
                           SoftId = cms.vstring("SoftId", "dummy[true=1,false=0]"),
+                          tag_TightIdReco = cms.vstring("tag_TightIdReco", "dummy[true=1,false=0]"),
+                          InAcceptance_Ups_TRG = cms.vstring("InAcceptance_Ups_TRG", "dummy[true=1,false=0]"),
+                          tag_InAcceptance_Ups_TRG = cms.vstring("tag_InAcceptance_Ups_TRG", "dummy[true=1,false=0]"),
                           HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_SingleMuOpen_NotMBHF2AND_v1", "dummy[true=1,false=0]"),
     ),
 

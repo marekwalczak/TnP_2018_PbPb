@@ -27,6 +27,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0, 10.0),
             eta = cms.vdouble(-2.4, 2.4),
             ),
@@ -40,6 +41,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0, 10.0),
             abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
             ),
@@ -53,7 +55,8 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(3.3,3.8,4.5,5.5,10),
+            #pair_dz = cms.vdouble(0.0,0.2),
+            pt = cms.vdouble(3.3,3.8,4.5,6.0,10),
             abseta = cms.vdouble(0.0, 1.0),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -66,6 +69,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0,1.25,1.5,2.0,2.5,3.0,4.0,9), #             pt = cms.vdouble(1.0,1.25,1.5,2.0,2.5,3.0,4.0,10),   pt = cms.vdouble(1.0,1.7,2.5,3.3,4.3,10),             pt = cms.vdouble(1.0,1.25,1.35,1.45,1.55,1.65,1.75,1,85,2.5,3.3,4.3,10),
             abseta = cms.vdouble(1.0, 1.6),
             ),
@@ -79,6 +83,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0,1.2,1.5,2.0,3.0,8),
             abseta = cms.vdouble(1.6, 2.1),
             ),
@@ -92,6 +97,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0,1.2,1.5,2.0,3.0,7),
             abseta = cms.vdouble(2.1, 2.4),
             ),
@@ -121,6 +127,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0, 10.0),
             eta = cms.vdouble(-2.4,-1.2,0.0,1.2,2.4),
             ),
@@ -134,6 +141,7 @@ VEFFICIENCYSET =cms.VPSet(
          UnbinnedVariables = cms.vstring("mass"),
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
+            #pair_dz = cms.vdouble(0.0,0.2),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
             pt = cms.vdouble(1.0,2.0,3.0,4.0,5.0,6.0,10),
             #eta = cms.vdouble(-2.4, 2.4),
@@ -162,11 +170,11 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/ID_data_20210125.root"),
+    InputFileNames = cms.vstring("file:Trees/Both_v1_data.root"),
     #InputFileNames = cms.vstring("file:Trees/tnpJpsi_Data_PbPb_200130_pTa1.root"),
-    InputDirectoryName = cms.string("tpTreeTrk"),
+    InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/Data/tnp_DATA_ID_scenario_%s_285mass340_newBins.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/Data/tnp_DATA_ID_scenario_%s_Both_285mass340_pol1free.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -183,6 +191,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                          eta              = cms.vstring("Probe #eta", "-2.4", "2.4", ""),
                          abseta           = cms.vstring("Probe |#eta|", "0", "2.5", ""),
                          tag_hiBin        = cms.vstring("Centrality bin", "0", "200", ""),
+                         pair_dz          = cms.vstring("pair_dz", "0", "5", ""),
 
     ),
     # defines all the discrete variables of the probes available in the input tree and intended for use in the efficiency calculations
@@ -190,6 +199,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
                           TM = cms.vstring("TM", "dummy[true=1,false=0]"),
                           SoftId = cms.vstring("SoftId", "dummy[true=1,false=0]"),
                           #HLT_HIUPC_SingleMu0_NotMBHF2AND_v1 = cms.vstring("HLT_HIUPC_SingleMu0_NotMBHF2AND_v1", "dummy[true=1,false=0]"),
+                          tag_TightIdReco = cms.vstring("tag_TightIdReco", "dummy[true=1,false=0]"),
     ),
 
     # defines all the PDFs that will be available for the efficiency calculations; uses RooFit's "factory" syntax;
@@ -245,7 +255,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
       ),
        #cb + cb:
       cbcbPlusPol1_fixed = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[2, 1, 3], n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[3, 2, 4], n[3, 2, 4])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
         "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
         "CBShape::signal2(mass, mean, sigma2, alpha, n)",
         "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
@@ -266,9 +276,10 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "signalFractionInPassing[0.9]"
       ),
       
+
         #cb + cb: n[2, 1, 3])", 
       cbcbPlusPol2_fixed = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[2, 1, 3], n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
+        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[3, 2, 4], n[3, 2, 4])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
         "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
         "CBShape::signal2(mass, mean, sigma2, alpha, n)",
         "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
@@ -276,10 +287,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "Chebychev::backgroundFail(mass, {cFail[0.,-2,2], cFail2[0.,-2,2]})",
         "efficiency[0.9,0.0,1.0]",
         "signalFractionInPassing[0.9]"
-      ),
-
-      
-      
+      ),      
       
     ),
    Efficiencies = EFFICIENCYSET

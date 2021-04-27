@@ -2,8 +2,8 @@ from CRABClient.UserUtilities import config
 config = config()
 
 config.section_('General')
-config.General.requestName = 'MC_20210325'
-config.General.workArea = 'crab_projects_ID_Tag_SMuOpen'
+config.General.requestName = 'MC_20210419'
+config.General.workArea = 'crab_projects_Both_v1'
 config.General.transferOutputs = True
 config.General.transferLogs = False
 
