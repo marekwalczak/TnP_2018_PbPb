@@ -13,11 +13,10 @@ process = cms.Process("TagProbe")
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )    
-PDFName = "cbcbPlusPol1_fixed" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
+PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
 
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
-
 
 
 
@@ -228,10 +227,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/Both_v1_data.root"),
+    InputFileNames = cms.vstring("file:Trees/Both_v1_MC.root"),
     InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/Data/tnp_DATA_TRG_scenario_%s_syst_syst_bkg_pol1.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s_syst_bkg_pol1.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -327,18 +326,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "efficiency[0.9,0.0,1.0]",
         "signalFractionInPassing[0.9]"
       ),
-       #cb + cb:
-      cbcbPlusPol1_fixed = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[3, 2, 4], n[3, 2, 4])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
-        "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
-        "CBShape::signal2(mass, mean, sigma2, alpha, n)",
-        "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",
-        "Chebychev::backgroundPass(mass, {cPass[0.,-2,2]})",
-        "Chebychev::backgroundFail(mass, {cFail[0.,-2,2]})",
-        "efficiency[0.9,0.0,1.0]",
-        "signalFractionInPassing[0.9]"
-      ),
-
+      
         #cb + cb: n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
       cbcbPlusPol2 = cms.vstring(
         "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
@@ -362,9 +350,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
         "efficiency[0.9,0.0,1.0]",
         "signalFractionInPassing[0.9]"
       ),
-      
 
-      
     ),
    Efficiencies = EFFICIENCYSET
 
