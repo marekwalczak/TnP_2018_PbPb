@@ -13,7 +13,7 @@ process = cms.Process("TagProbe")
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )    
-PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
+PDFName = "cbcbPlusPol2" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
 
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
@@ -58,7 +58,7 @@ VEFFICIENCYSET =cms.VPSet(
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10.0),
-            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
+            abseta = cms.vdouble(0.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -77,7 +77,7 @@ VEFFICIENCYSET =cms.VPSet(
             InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(3.3,4.0,4.7,6.0,10),
+            pt = cms.vdouble(3.5,4.0,4.5,5.2),
             abseta = cms.vdouble(0.0, 1.1),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -97,7 +97,7 @@ VEFFICIENCYSET =cms.VPSet(
             InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(2.15,2.7,3.3,4.3,5.3,9), #            pt = cms.vdouble(2.15,2.5,3.0,3.75,4.5,5.5,10),
+            pt = cms.vdouble(2.8,3.3,3.9,4.5,5.2),
             abseta = cms.vdouble(1.1, 1.6),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -117,7 +117,7 @@ VEFFICIENCYSET =cms.VPSet(
             InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.2,1.45,1.7,2.2,2.7,3.3,8),
+            pt = cms.vdouble(2.8,3.3,3.9,4.5,5.2),
             abseta = cms.vdouble(1.6, 2.1),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -137,7 +137,7 @@ VEFFICIENCYSET =cms.VPSet(
             InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
-            pt = cms.vdouble(1.2,1.35,1.5,1.8,2.3,2.8,3.3,7),
+            pt = cms.vdouble(2.8,3.3,3.9,4.5,5.2),
             abseta = cms.vdouble(2.1, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -145,6 +145,7 @@ VEFFICIENCYSET =cms.VPSet(
       ),
       
       
+
 
 
   cms.PSet(
@@ -161,7 +162,7 @@ VEFFICIENCYSET =cms.VPSet(
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             abseta = cms.vdouble(0.0, 2.4),
             pt = cms.vdouble(1.2, 10.0),
-            tag_hiBin = cms.vdouble(140,150,160,170,180,190,200),
+            tag_hiBin = cms.vdouble(140,200),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -182,7 +183,7 @@ VEFFICIENCYSET =cms.VPSet(
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             pt = cms.vdouble(1.2, 10.0),
-            eta = cms.vdouble(-2.4,-1.2,0.0,1.2,2.4),
+            eta = cms.vdouble(-2.4,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -202,13 +203,15 @@ VEFFICIENCYSET =cms.VPSet(
             tag_InAcceptance_Ups_TRG = cms.vstring("true"),
             tag_hiBin = cms.vdouble(180,200),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.2,2.0,3.0,4.0,5.0,6.0,10),
+            pt = cms.vdouble(1.2,10),
             #eta = cms.vdouble(-2.4, 2.4),
-            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
+            abseta = cms.vdouble(0.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
       ),
+      
+      
     )
 
 #Actual selection
@@ -227,10 +230,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/Both_v1_MC.root"),
+    InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_MC_PbPb_210604_SL_inc_Ups.root"),
     InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC/tnp_MC_TRG_scenario_%s_syst_bkg_pol1.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC_SL/tnp_MC_SL_U_TRG_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
@@ -242,7 +245,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     
     # defines all the real variables of the probes available in the input tree and intended for use in the efficiencies
     Variables = cms.PSet(
-                         mass             = cms.vstring("Tag-Probe Mass", "2.8", "3.4", "GeV/c^{2}"),  # mass range: 2.8 - 3.4       # oryginal: mass range syst: 2.8-3.4, nominal: 2.6-3.5
+                         mass             = cms.vstring("Tag-Probe Mass", "8.5", "10.5", "GeV/c^{2}"),
                          pt               = cms.vstring("Probe p_{T}", "0.0", "1000", "GeV/c"),
                          eta              = cms.vstring("Probe #eta", "-2.4", "2.4", ""),
                          abseta           = cms.vstring("Probe |#eta|", "0", "2.5", ""),
@@ -329,7 +332,8 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
       
         #cb + cb: n[2, 1, 3])", # alpha[1.85, 0.1, 50], n[1.7, 0.2, 50]
       cbcbPlusPol2 = cms.vstring(
-        "CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
+        "CBShape::signal1(mass, mean[9.45, 9.3, 9.6], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])",
+        #"CBShape::signal1(mass, mean[3.08,3.00,3.2], sigma1[0.03, 0.01, 0.10], alpha[1.85, 0.1, 50], n[1.7, 0.2, 50])", 
         "RooFormulaVar::sigma2('@0*@1',{fracS[1.8,1.2,2.4],sigma1})",
         "CBShape::signal2(mass, mean, sigma2, alpha, n)",
         "SUM::signal(frac[0.8,0.1,1.]*signal1,signal2)",

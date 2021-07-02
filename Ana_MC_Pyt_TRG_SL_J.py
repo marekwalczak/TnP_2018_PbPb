@@ -20,7 +20,6 @@ PDFName = "cbcbPlusPol2" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2
 
 
 
-
 VEFFICIENCYSET =cms.VPSet(
 
    cms.PSet(
@@ -210,7 +209,6 @@ VEFFICIENCYSET =cms.VPSet(
          )
       ),
     )
-
 #Actual selection
 if scenario == "1": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0])
 if scenario == "2": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[1])
@@ -227,10 +225,10 @@ if scenario == "0": EFFICIENCYSET = cms.PSet(VEFFICIENCYSET[0],VEFFICIENCYSET[1]
 
 process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     # IO parameters:
-    InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_MC_PbPb_210604_SL_inc_jpsi.root"),
+    InputFileNames = cms.vstring("file:Trees/Both_v1_MC.root"),
     InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC_SL/tnp_MC_SL_J_TRG_scenario_%s_bins5.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC_SL/tnp_MC_TRG_scenario_%s_SL_J_Pyt5.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and

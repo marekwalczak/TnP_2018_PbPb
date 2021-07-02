@@ -18,7 +18,6 @@ PDFName = "cbcbPlusPol1" #cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
 
-
 VEFFICIENCYSET =cms.VPSet(
 
    cms.PSet(
@@ -43,7 +42,7 @@ VEFFICIENCYSET =cms.VPSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
             pt = cms.vdouble(1.0, 10.0),
-            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
+            abseta = cms.vdouble(0.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -56,7 +55,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
-            pt = cms.vdouble(3.3,3.8,4.5,6.0,10),
+            pt = cms.vdouble(3.3,10),
             abseta = cms.vdouble(0.0, 1.0),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -70,7 +69,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
-            pt = cms.vdouble(1.0,1.25,1.5,2.0,2.5,3.0,4.0,9), #             pt = cms.vdouble(1.0,1.25,1.5,2.0,2.5,3.0,4.0,10),   pt = cms.vdouble(1.0,1.7,2.5,3.3,4.3,10),             pt = cms.vdouble(1.0,1.25,1.35,1.45,1.55,1.65,1.75,1,85,2.5,3.3,4.3,10),
+            pt = cms.vdouble(1.0,1.2,1.5,1.8),
             abseta = cms.vdouble(1.0, 1.6),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -84,7 +83,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
-            pt = cms.vdouble(1.0,1.2,1.5,2.0,3.0,8),
+            pt = cms.vdouble(1.0,1.2,1.5,1.8),
             abseta = cms.vdouble(1.6, 2.1),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -98,7 +97,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
-            pt = cms.vdouble(1.0,1.2,1.5,2.0,3.0,7),
+            pt = cms.vdouble(1.0,1.2,1.5,1.8),
             abseta = cms.vdouble(2.1, 2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
@@ -115,7 +114,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             abseta = cms.vdouble(0.0, 2.4),
             pt = cms.vdouble(1.0, 10.0),
-            tag_hiBin = cms.vdouble(140,150,160,170,180,190,200),
+            tag_hiBin = cms.vdouble(140,200),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -143,9 +142,9 @@ VEFFICIENCYSET =cms.VPSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
             #pt = cms.vdouble(2.0,2.5,3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
-            pt = cms.vdouble(1.0,2.0,3.0,4.0,5.0,6.0,10),
+            pt = cms.vdouble(1.0,10),
             #eta = cms.vdouble(-2.4, 2.4),
-            abseta = cms.vdouble(0.0,1.2,1.6,2.1,2.4),
+            abseta = cms.vdouble(0.0,2.4),
             ),
          BinToPDFmap = cms.vstring(PDFName)
          )
@@ -173,7 +172,7 @@ process.TagProbeFitTreeAnalyzer = cms.EDAnalyzer("TagProbeFitTreeAnalyzer",
     InputFileNames = cms.vstring("file:Trees/STARLIGHT/tnp_MC_PbPb_210604_SL_inc_jpsi.root"),
     InputDirectoryName = cms.string("tpTree"),
     InputTreeName = cms.string("fitter_tree"),
-    OutputFileName = cms.string("Output/MC_SL/tnp_MC_SL_J_ID_scenario_%s.root" % (scenario) ), #"mass2834" for mass range systematics 
+    OutputFileName = cms.string("Output/MC_SL/tnp_MC_SL_J_ID_scenario_%s_bins.root" % (scenario) ), #"mass2834" for mass range systematics 
    #numbrer of CPUs to use for fitting
     NumCPU = cms.uint32(25),
     # specifies whether to save the RooWorkspace containing the data for each bin and
