@@ -13,7 +13,7 @@ process = cms.Process("TagProbe")
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.source = cms.Source("EmptySource")
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1) )    
-PDFName = "cbcbPlusPol1" #cbcbPlusPol2, cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
+PDFName = "cbcbPlusPol1_fixed" #cbcbPlusPol1_fixed, cbcbPlusPol2, cbPlusPol1, cbPlusPol2, cbGausPlusPol1, cbGausPlusPol2, cbcbPlusPol1
 
 # defines a set of efficiency calculations, what PDF to use for fitting and how to bin the data;
 # there will be a separate output directory for each calculation that includes a simultaneous fit, side band subtraction and counting. 
@@ -70,7 +70,7 @@ VEFFICIENCYSET =cms.VPSet(
          BinnedVariables = cms.PSet(
             tag_hiBin = cms.vdouble(180,200),
             #pair_dz = cms.vdouble(0.0,0.2),
-            pt = cms.vdouble(1.0,1.25,1.5,2.0,2.5,3.5,9), #    (1.0,1.25,1.5,2.0,2.5,3.0,4.0,9)
+            pt = cms.vdouble(1.0,1.5,2.0,2.5,3.5,9), #    (1.0,1.25,1.5,2.0,2.5,3.0,4.0,9)
             abseta = cms.vdouble(1.0, 1.6),
             ),
          BinToPDFmap = cms.vstring(PDFName)
